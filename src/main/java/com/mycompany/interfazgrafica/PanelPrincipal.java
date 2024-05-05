@@ -12,6 +12,8 @@ import javax.print.Doc;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+import com.mycompany.ExcepcionDatoValido;
+
 /**
  *
  * @author Pavilion
@@ -917,15 +919,27 @@ import javax.swing.table.DefaultTableModel;
             boolean cantidadValida = true, precioValido = true;
             try{
                 cantidades.add(Integer.parseInt(CampoCantidadProductos.getText()));
+                if ((Integer.parseInt(CampoCantidadProductos.getText())) <= 0){
+                    throw new ExcepcionDatoValido("");
+                }
             }catch(NumberFormatException e){
                 cantidadValida = false;
                 JOptionPane.showMessageDialog(null, "DEBES AGREGAR UNA CANTIDAD NUMERICA!!");
+            }catch(ExcepcionDatoValido e){
+                cantidadValida = false;
+                JOptionPane.showMessageDialog(null,"CANTIDAD INVALIDA!!");
             }
             try{
                 precios.add(Integer.parseInt(txtprecio.getText()));
+                if ((Integer.parseInt(txtprecio.getText())) <= 0){
+                    throw new ExcepcionDatoValido("");
+                }
             }catch(NumberFormatException e){
                 precioValido = false;
                 JOptionPane.showMessageDialog(null, "DEBES AGREGAR UN PRECIO NUMERICO!!");
+            }catch(ExcepcionDatoValido e){
+                precioValido = false;
+                JOptionPane.showMessageDialog(null,"PRECIO INVALIDO!!");
             }
 
             if (cantidadValida == true && precioValido == true){
