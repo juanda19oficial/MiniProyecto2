@@ -7,7 +7,7 @@ package com.mycompany.interfazgrafica;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashSet;
-
+import java.util.InputMismatchException;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -120,8 +120,8 @@ import com.mycompany.ExcepcionDatoValido;
         PanelProductos = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jButton8 = new javax.swing.JButton();
+        CampoBuscarProductoPorCodigo = new javax.swing.JTextField();
+        BotonBuscarProductoPorCodigo = new javax.swing.JButton();
         BotonMostrarEstadisticas = new javax.swing.JButton();
         PanelEnProductos = new javax.swing.JPanel();
         LabelDescripcion = new javax.swing.JLabel();
@@ -136,7 +136,7 @@ import com.mycompany.ExcepcionDatoValido;
         CampoEjemploUso = new javax.swing.JTextField();
         BotonEliminar = new javax.swing.JButton();
         BotonAdicionar = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        BotonVaciarCamposDeTexto = new javax.swing.JButton();
         LabelCantidadProductos = new javax.swing.JLabel();
         CampoCantidadProductos = new javax.swing.JTextField();
         BotonVender = new javax.swing.JButton();
@@ -424,9 +424,14 @@ import com.mycompany.ExcepcionDatoValido;
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setText("PRODUCTOS");
 
-        jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        CampoBuscarProductoPorCodigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jButton8.setText("BUSCAR PRODUCTOS POR CODIGO");
+        BotonBuscarProductoPorCodigo.setText("BUSCAR PRODUCTOS POR CODIGO");
+        BotonBuscarProductoPorCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonBuscarProductoPorCodigoActionPerformed(evt);
+            }
+        });
 
         BotonMostrarEstadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/Imagenes/Estadisticas.png"))); // NOI18N
         BotonMostrarEstadisticas.setText("MOSTRAR ESTADÍSTICAS");
@@ -439,9 +444,9 @@ import com.mycompany.ExcepcionDatoValido;
                 .addGap(17, 17, 17)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CampoBuscarProductoPorCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BotonBuscarProductoPorCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(BotonMostrarEstadisticas)
                 .addContainerGap(353, Short.MAX_VALUE))
@@ -453,11 +458,17 @@ import com.mycompany.ExcepcionDatoValido;
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel6)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(CampoBuscarProductoPorCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BotonBuscarProductoPorCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(BotonMostrarEstadisticas))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        CampoBuscarProductoPorCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoBuscarProductoPorCodigoActionPerformed(evt);
+            }
+        });
 
         PanelEnProductos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -508,10 +519,10 @@ import com.mycompany.ExcepcionDatoValido;
             }
         });
 
-        jButton11.setText("VACIAR CAMPO DE TEXTO");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        BotonVaciarCamposDeTexto.setText("VACIAR CAMPO DE TEXTO");
+        BotonVaciarCamposDeTexto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                BotonVaciarCamposDeTextoActionPerformed(evt);
             }
         });
 
@@ -524,8 +535,18 @@ import com.mycompany.ExcepcionDatoValido;
         });
 
         BotonVender.setText("VENDER");
+        BotonVender.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                BotonVenderActionPerformed(evt);
+            }
+        });
 
         BotonAgregar.setText("AGREGAR");
+        BotonAgregar.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                BotonAgregarActionPerformed(evt);
+            }
+        });
 
         LabelCodigo.setText("CODIGO");
 
@@ -583,7 +604,7 @@ import com.mycompany.ExcepcionDatoValido;
                                 .addComponent(BotonAdicionar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(BotonVender, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(BotonVaciarCamposDeTexto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelEnProductosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -630,7 +651,7 @@ import com.mycompany.ExcepcionDatoValido;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelEnProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonAgregar)
-                    .addComponent(jButton11))
+                    .addComponent(BotonVaciarCamposDeTexto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(verDetalleProducto)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -825,9 +846,17 @@ import com.mycompany.ExcepcionDatoValido;
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
+    public void BotonVaciarCamposDeTextoActionPerformed(java.awt.event.ActionEvent evt) {
+        // Vaciar los campos de texto
+        CampoBuscarProductoPorCodigo.setText("");
+        txtcodigo.setText("");
+        CampoCantidadProductos.setText("");
+        txtprecio.setText("");
+        nombreProducto.setText("");
+        txtdescripcion.setText("");
+        txtmaterial.setText("");
+        CampoEjemploUso.setText("");
+    }
 
     private void BotonClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonClientesActionPerformed
         PanelContenedor.setSelectedComponent(PanelClientes);
@@ -845,62 +874,211 @@ import com.mycompany.ExcepcionDatoValido;
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoCantidadProductosActionPerformed
 
-    private void BotonVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVentasActionPerformed
+    private void BotonVentasActionPerformed(java.awt.event.ActionEvent evt){//GEN-FIRST:event_CampoCantidadProductosActionPerformed
         PanelContenedor.setSelectedComponent(PanelVentas);
-    }//GEN-LAST:event_BotonVentasActionPerformed
+    }//GEN-LAST:event_CampoCantidadProductosActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        PanelVentas1.setSelectedComponent(PanelVentas12);
-    }//GEN-LAST:event_jButton12ActionPerformed
+    public void BotonAgregarActionPerformed(java.awt.event.ActionEvent evt){
+        if ((txtcodigo.getText()).equals("") || CampoCantidadProductos.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "DEBES MARCARLOS CAMPOS REQUERIDOS:\nCODIGO DEL PRODUCTO\nCANTIDAD DE PRODUCTOS ");
+            return;
+        }
+        boolean codigoProductoEncontrado = false;
+        try {
+            int productosAgregar = Integer.parseInt(CampoCantidadProductos.getText());
+            for (int i = 0; i < codigos.size(); i++) {
+                if (txtcodigo.getText().equals(codigos.get(i))) {
+                    codigoProductoEncontrado = true;
+                    int nuevaCantidad = cantidades.get(i) + productosAgregar;
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        PanelVentas1.setSelectedComponent(PanelVentas11);
-    }//GEN-LAST:event_jButton13ActionPerformed
+                    if (nuevaCantidad <= 0) {
+                        JOptionPane.showMessageDialog(null, "POR FAVOR INGRESA UNA CANTIDAD VÁLIDA");
+                        return; // Salir del método si no hay suficientes productos en stock
+                    }
+                    cantidades.set(i, nuevaCantidad); // Actualizar la cantidad disponible
+                    modelo.setValueAt(nuevaCantidad, i, 2); // Actualizar la cantidad en la tabla
+                    JOptionPane.showMessageDialog(null, "PRODUCTOS AGREGADOS EXITOSAMENTE");
+        
+                    break; // Salir del bucle después de encontrar el producto
+                }
+                else if (!codigoProductoEncontrado) {
+                    JOptionPane.showMessageDialog(null, "EL PRODUCTO NO SE ENCUENTRA DISPONIBLE");
+                }
+            }
+        } catch (InputMismatchException e) {
+            JOptionPane.showMessageDialog(null,"CANTIDAD INVALIDA!!");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "DEBES AGREGAR UNA CANTIDAD NUMERICA!!");
 
-    private void txtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtcodigoActionPerformed
+        }
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+        // Vaciar los campos de texto
+        txtcodigo.setText("");
+        CampoCantidadProductos.setText("");
+        txtprecio.setText("");
+        nombreProducto.setText("");
+        txtdescripcion.setText("");
+        txtmaterial.setText("");
+        CampoEjemploUso.setText("");
+    }
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void BotonEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonEliminarMouseClicked
+    public void BotonBuscarProductoPorCodigoActionPerformed(java.awt.event.ActionEvent evt){
+        if ((CampoBuscarProductoPorCodigo.getText()).equals("")) {
+            JOptionPane.showMessageDialog(null, "POR FAVOR DIGITA EL CODIGO DEL PRODUCTO A BUSCAR");
+            return;
+        }
+        boolean codigoProductoEncontrado = false;
     
-// TODO add your handling code here:
-    }//GEN-LAST:event_BotonEliminarMouseClicked
+        for (int i = 0; i < codigos.size(); i++) {
+            if (CampoBuscarProductoPorCodigo.getText().equals(codigos.get(i))) {
+                codigoProductoEncontrado = true;
+                JOptionPane.showMessageDialog(null, "INFORMACION DEL PRODUCTO:\nCÓDIGO: "+
+                                codigos.get(i)+"\nNOMBRE: "+nombres.get(i)+"\nDESCRIPCIÓN: "+descripciones.get(i)+
+                                "\nMATERIAL DE ELABORACION: "+materiales.get(i)+"\nEJEMPLO DE USO: "+EjemplosUso.get(i)+
+                                "\nNUMERO DE VENTAS: "+ventasNum.get(i)+"\nCANTIDAD DISPONIBLE: "+cantidades.get(i)+"\n");
+                break; // Salir del bucle después de encontrar el producto
+            }
+        }
+        if (!codigoProductoEncontrado) {
+            JOptionPane.showMessageDialog(null, "EL PRODUCTO NO SE ENCUENTRA DISPONIBLE");
+        }
 
-    private void BotonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarActionPerformed
-        // TODO add your handling code here:
-        int fila = tablaProductos.getSelectedRow();
-        if(fila>=0){
-            modelo.removeRow(fila);
-            precios.remove(fila);
-            cantidades.remove(fila);
-            nombres.remove(fila);
-            descripciones.remove(fila);
-            codigos.remove(fila);
-            materiales.remove(fila);
-            EjemplosUso.remove(fila);
-            ventasNum.remove(fila);
+        // Vaciar los campos de texto
+        CampoBuscarProductoPorCodigo.setText("");
+}
 
-       }else{
-           JOptionPane.showMessageDialog(null, "Seleccionar fila");
-       }
-       
-    }//GEN-LAST:event_BotonEliminarActionPerformed
+
+    public void BotonVenderActionPerformed(java.awt.event.ActionEvent evt) {
+        if ((txtcodigo.getText()).equals("") || CampoCantidadProductos.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "DEBES MARCARLOS CAMPOS REQUERIDOS:\nCODIGO DEL PRODUCTO*\nCANTIDAD DE PRODUCTOS*");
+            return;
+        }
+
+        boolean codigoProductoEncontrado = false;
+        try {
+            int productosComprar = Integer.parseInt(CampoCantidadProductos.getText());
+            for (int i = 0; i < codigos.size(); i++) {
+                if (txtcodigo.getText().equals(codigos.get(i))) {
+                    codigoProductoEncontrado = true;
+                    int nuevaCantidad = cantidades.get(i) - productosComprar;
+                    if (nuevaCantidad < 0) {
+                        JOptionPane.showMessageDialog(null, "No hay suficientes productos en stock");
+                        return; // Salir del método si no hay suficientes productos en stock
+                    }
+                    cantidades.set(i, nuevaCantidad); // Actualizar la cantidad disponible
+                    int nuevaVenta = ventasNum.get(i) + productosComprar;
+                    ventasNum.set(i, nuevaVenta); // Actualizar la cantidad vendida
+                    modelo.setValueAt(nuevaCantidad, i, 2); // Actualizar la cantidad en la tabla
+                    modelo.setValueAt(nuevaVenta, i, 3); // Actualizar la cantidad vendida en la tabla
+        
+                    if (nuevaCantidad == 0) {
+                        // Si la cantidad disponible es 0, puedes eliminar la fila de la tabla
+                        modelo.removeRow(i);
+                        codigos.remove(i);
+                        nombres.remove(i);
+                        descripciones.remove(i);
+                        materiales.remove(i);
+                        EjemplosUso.remove(i);
+                        ventasNum.remove(i);
+                        cantidades.remove(i);
+                    }
+                    break; // Salir del bucle después de encontrar el producto
+                }
+                else if (!codigoProductoEncontrado) {
+                    JOptionPane.showMessageDialog(null, "EL PRODUCTO NO SE ENCUENTRA DISPONIBLE");
+                }
+            }
+        } catch (InputMismatchException e) {
+            JOptionPane.showMessageDialog(null,"CANTIDAD INVALIDA!!");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "DEBES AGREGAR UNA CANTIDAD NUMERICA!!");
+
+        }
+
+        // Vaciar los campos de texto
+        txtcodigo.setText("");
+        CampoCantidadProductos.setText("");
+        txtprecio.setText("");
+        nombreProducto.setText("");
+        txtdescripcion.setText("");
+        txtmaterial.setText("");
+        CampoEjemploUso.setText("");
+    }
+
+
+        private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+            PanelVentas1.setSelectedComponent(PanelVentas12);
+        }//GEN-LAST:event_jButton12ActionPerformed
+
+        private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+            PanelVentas1.setSelectedComponent(PanelVentas11);
+        }//GEN-LAST:event_jButton13ActionPerformed
+
+        private void txtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigoActionPerformed
+            // TODO add your handling code here:
+        }//GEN-LAST:event_txtcodigoActionPerformed
+
+        private void CampoBuscarProductoPorCodigoActionPerformed(java.awt.event.ActionEvent evt){//GEN-FIRST:event_txtcodigoActionPerformed
+            // TODO add your handling code here:
+        }//GEN-LAST:event_txtcodigoActionPerformed
+
+        private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+            // TODO add your handling code here:
+        }//GEN-LAST:event_jComboBox1ActionPerformed
+
+        private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+            // TODO add your handling code here:
+        }//GEN-LAST:event_jTextField1ActionPerformed
+
+        private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+        }//GEN-LAST:event_jButton4ActionPerformed
+
+        private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+            // TODO add your handling code here:
+        }//GEN-LAST:event_jTextField2ActionPerformed
+
+        private void BotonEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonEliminarMouseClicked
+        
+    // TODO add your handling code here:
+        }//GEN-LAST:event_BotonEliminarMouseClicked
+
+        private void BotonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarActionPerformed
+            // TODO add your handling code here:
+            int fila = tablaProductos.getSelectedRow();
+            if(fila>=0){
+                modelo.removeRow(fila);
+                precios.remove(fila);
+                cantidades.remove(fila);
+                nombres.remove(fila);
+                descripciones.remove(fila);
+                codigos.remove(fila);
+                materiales.remove(fila);
+                EjemplosUso.remove(fila);
+                ventasNum.remove(fila);
+
+                // Vaciar los campos de texto en caso de que el usuario los rellene
+                txtcodigo.setText("");
+                CampoCantidadProductos.setText("");
+                txtprecio.setText("");
+                nombreProducto.setText("");
+                txtdescripcion.setText("");
+                txtmaterial.setText("");
+                CampoEjemploUso.setText("");
+
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Seleccionar fila");
+                // Vaciar los campos de texto en caso de que el usuario los rellene
+                txtcodigo.setText("");
+                CampoCantidadProductos.setText("");
+                txtprecio.setText("");
+                nombreProducto.setText("");
+                txtdescripcion.setText("");
+                txtmaterial.setText("");
+                CampoEjemploUso.setText("");
+            }
+        }//GEN-LAST:event_BotonEliminarActionPerformed
 
     private void nombreProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreProductoActionPerformed
         // TODO add your handling code here:
@@ -957,6 +1135,15 @@ import com.mycompany.ExcepcionDatoValido;
                 modelo.addRow(info);
             }
         }
+
+        // Vaciar los campos de texto
+        txtcodigo.setText("");
+        txtprecio.setText("");
+        CampoCantidadProductos.setText("");
+        nombreProducto.setText("");
+        txtdescripcion.setText("");
+        txtmaterial.setText("");
+        CampoEjemploUso.setText("");
     }
  
         // TODO add your handling code here:
@@ -1043,14 +1230,14 @@ import com.mycompany.ExcepcionDatoValido;
     private javax.swing.JTabbedPane PanelVentas1;
     private javax.swing.JPanel PanelVentas11;
     private javax.swing.JPanel PanelVentas12;
-    private javax.swing.JButton jButton11;
+    private javax.swing.JButton BotonVaciarCamposDeTexto;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
+    private javax.swing.JButton BotonBuscarProductoPorCodigo;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
@@ -1086,7 +1273,7 @@ import com.mycompany.ExcepcionDatoValido;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField CampoBuscarProductoPorCodigo;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JTextField nombreProducto;
