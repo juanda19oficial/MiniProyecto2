@@ -883,6 +883,19 @@ import com.mycompany.ExcepcionDatoValido;
             JOptionPane.showMessageDialog(null, "DEBES MARCARLOS CAMPOS REQUERIDOS:\nCODIGO DEL PRODUCTO\nCANTIDAD DE PRODUCTOS ");
             return;
         }
+        if (Integer.parseInt(CampoCantidadProductos.getText()) <= 0){
+            JOptionPane.showMessageDialog(null, "POR FAVOR INGRESE UNA CANTIDAD VÁLIDA");
+            // Vaciar los campos de texto
+            txtcodigo.setText("");
+            CampoCantidadProductos.setText("");
+            txtprecio.setText("");
+            nombreProducto.setText("");
+            txtdescripcion.setText("");
+            txtmaterial.setText("");
+            CampoEjemploUso.setText("");
+            return;
+        }
+        
         boolean codigoProductoEncontrado = false;
         try {
             int productosAgregar = Integer.parseInt(CampoCantidadProductos.getText());
@@ -901,9 +914,10 @@ import com.mycompany.ExcepcionDatoValido;
         
                     break; // Salir del bucle después de encontrar el producto
                 }
-                else if (!codigoProductoEncontrado) {
-                    JOptionPane.showMessageDialog(null, "EL PRODUCTO NO SE ENCUENTRA DISPONIBLE");
+                
                 }
+                if (!codigoProductoEncontrado) {
+                    JOptionPane.showMessageDialog(null, "EL PRODUCTO NO SE ENCUENTRA DISPONIBLE");
             }
         } catch (InputMismatchException e) {
             JOptionPane.showMessageDialog(null,"CANTIDAD INVALIDA!!");
@@ -953,6 +967,18 @@ import com.mycompany.ExcepcionDatoValido;
             JOptionPane.showMessageDialog(null, "DEBES MARCARLOS CAMPOS REQUERIDOS:\nCODIGO DEL PRODUCTO*\nCANTIDAD DE PRODUCTOS*");
             return;
         }
+        if (Integer.parseInt(CampoCantidadProductos.getText()) <= 0){
+            JOptionPane.showMessageDialog(null, "POR FAVOR INGRESE UNA CANTIDAD VÁLIDA");
+            // Vaciar los campos de texto
+            txtcodigo.setText("");
+            CampoCantidadProductos.setText("");
+            txtprecio.setText("");
+            nombreProducto.setText("");
+            txtdescripcion.setText("");
+            txtmaterial.setText("");
+            CampoEjemploUso.setText("");
+            return;
+        }
 
         boolean codigoProductoEncontrado = false;
         try {
@@ -982,11 +1008,13 @@ import com.mycompany.ExcepcionDatoValido;
                         ventasNum.remove(i);
                         cantidades.remove(i);
                     }
+                    JOptionPane.showMessageDialog(null, "PRODUCTOS VENDIDOS EXITOSAMENTE");
                     break; // Salir del bucle después de encontrar el producto
                 }
-                else if (!codigoProductoEncontrado) {
-                    JOptionPane.showMessageDialog(null, "EL PRODUCTO NO SE ENCUENTRA DISPONIBLE");
+                
                 }
+                if (!codigoProductoEncontrado) {
+                    JOptionPane.showMessageDialog(null, "EL PRODUCTO NO SE ENCUENTRA DISPONIBLE");
             }
         } catch (InputMismatchException e) {
             JOptionPane.showMessageDialog(null,"CANTIDAD INVALIDA!!");
