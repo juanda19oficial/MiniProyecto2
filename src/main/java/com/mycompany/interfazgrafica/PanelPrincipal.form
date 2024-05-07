@@ -619,7 +619,7 @@
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           <Component id="jLabel6" min="-2" pref="89" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField7" min="-2" pref="244" max="-2" attributes="0"/>
+                          <Component id="CampoBuscarProductoPorCodigo" min="-2" pref="244" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Component id="jButton8" min="-2" pref="356" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -635,7 +635,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CampoBuscarProductoPorCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButton8" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                               </Group>
                               <Component id="BotonMostrarEstadisticas" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -654,7 +654,7 @@
                     <Property name="text" type="java.lang.String" value="PRODUCTOS"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField7">
+                <Component class="javax.swing.JTextField" name="CampoBuscarProductoPorCodigo">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="0"/>
@@ -688,54 +688,64 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="LabelDescripcion" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
-                              <Component id="LabelMaterial" alignment="0" min="-2" pref="299" max="-2" attributes="0"/>
-                              <Component id="LabelNombreProducto" alignment="0" min="-2" pref="169" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="nombreProducto" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="LabelEjemploUso" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="LabelCantidadProductos" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="CampoEjemploUso" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtdescripcion" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtmaterial" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtprecio" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
-                                          <Component id="LabelPrecio" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="LabelCodigo" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtcodigo" min="-2" pref="145" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <Component id="CampoCantidadProductos" alignment="0" min="-2" pref="310" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="BotonAgregar" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="BotonEliminar" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
+                              <Component id="CampoCantidadProductos" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="BotonAdicionar" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="BotonVender" min="-2" pref="83" max="-2" attributes="0"/>
+                                      <Component id="LabelDescripcion" alignment="0" min="-2" pref="186" max="-2" attributes="0"/>
+                                      <Component id="LabelNombreProducto" alignment="0" min="-2" pref="169" max="-2" attributes="0"/>
+                                      <Component id="nombreProducto" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="LabelEjemploUso" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="CampoEjemploUso" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtdescripcion" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="LabelPrecio" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtprecio" min="-2" pref="147" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="LabelCodigo" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtcodigo" min="-2" pref="145" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <Component id="jButton11" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="txtmaterial" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="LabelCantidadProductos" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jTextField5" min="-2" pref="146" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="BotonAgregar" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="BotonEliminar" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="BotonAdicionar" min="-2" pref="99" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="BotonVender" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Component id="jButton11" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="LabelMaterial" min="-2" pref="152" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="LabelCodigo1" min="-2" pref="105" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="verDetalleProducto" alignment="0" min="-2" pref="291" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="verDetalleProducto" min="-2" pref="291" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -762,10 +772,16 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="LabelMaterial" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="LabelMaterial" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                              <Component id="LabelCodigo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtmaterial" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtmaterial" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextField5" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="LabelCantidadProductos" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -787,7 +803,7 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="verDetalleProducto" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="59" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -820,7 +836,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="LabelMaterial">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="MATERIAL DE ELABORACI&#xd3;N"/>
+                    <Property name="text" type="java.lang.String" value="MATERIAL   ELABORACI&#xd3;N"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtprecio">
@@ -900,6 +916,13 @@
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="verDetalleProductoMouseClicked"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verDetalleProductoActionPerformed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="LabelCodigo1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="H-NECESARIAS"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextField5">
                 </Component>
               </SubComponents>
             </Container>
