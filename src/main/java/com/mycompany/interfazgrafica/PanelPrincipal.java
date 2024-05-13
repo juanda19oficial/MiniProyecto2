@@ -6,8 +6,12 @@ package com.mycompany.interfazgrafica;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Map;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -28,6 +32,7 @@ import com.mycompany.ExcepcionDatoValido;
     ArrayList <String> codigos;
     ArrayList <String> materiales;
     ArrayList <String> EjemplosUso;
+    ArrayList <String> herramientas;
     ArrayList <Integer> ventasNum;
     DefaultTableModel modelo;
 
@@ -42,6 +47,7 @@ import com.mycompany.ExcepcionDatoValido;
         codigos = new ArrayList<>();
         materiales = new ArrayList<>();
         EjemplosUso = new ArrayList<>();
+        herramientas = new ArrayList<>();
         ventasNum = new ArrayList<>();
         
         precios.add((int)650);
@@ -58,6 +64,8 @@ import com.mycompany.ExcepcionDatoValido;
         materiales.add("BRONCE");
         EjemplosUso.add("unir dos piezas");
         EjemplosUso.add("en los lavaplatos");
+        herramientas.add("Destornillador");
+        herramientas.add("Llave Inglesa");
         ventasNum.add(5);
         ventasNum.add(2);
     
@@ -145,8 +153,8 @@ import com.mycompany.ExcepcionDatoValido;
         LabelCodigo = new javax.swing.JLabel();
         txtcodigo = new javax.swing.JTextField();
         verDetalleProducto = new javax.swing.JButton();
-        LabelCodigo1 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        LabelHerramientas = new javax.swing.JLabel();
+        CampoHerramientas = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaProductos = new javax.swing.JTable();
         PanelVentas = new javax.swing.JPanel();
@@ -508,6 +516,12 @@ import com.mycompany.ExcepcionDatoValido;
             }
         });
 
+        CampoHerramientas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoHerramientasActionPerformed(evt);
+            }
+        });
+
         BotonEliminar.setText("ELIMINAR");
         BotonEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -575,8 +589,13 @@ import com.mycompany.ExcepcionDatoValido;
                 verDetalleProductoActionPerformed(evt);
             }
         });
+        BotonMostrarEstadisticas.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(java.awt.event.ActionEvent evt){
+                mostrarEstadisticas();
+            }
+        });
 
-        LabelCodigo1.setText("H-NECESARIAS");
+        LabelHerramientas.setText("H-NECESARIAS");
 
         javax.swing.GroupLayout PanelEnProductosLayout = new javax.swing.GroupLayout(PanelEnProductos);
         PanelEnProductos.setLayout(PanelEnProductosLayout);
@@ -611,7 +630,7 @@ import com.mycompany.ExcepcionDatoValido;
                                     .addComponent(txtmaterial, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(LabelCantidadProductos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(CampoHerramientas, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(PanelEnProductosLayout.createSequentialGroup()
                                 .addGroup(PanelEnProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(BotonAgregar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -627,7 +646,7 @@ import com.mycompany.ExcepcionDatoValido;
                             .addGroup(PanelEnProductosLayout.createSequentialGroup()
                                 .addComponent(LabelMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(LabelCodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(LabelHerramientas, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(verDetalleProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -655,10 +674,10 @@ import com.mycompany.ExcepcionDatoValido;
                 .addGap(18, 18, 18)
                 .addGroup(PanelEnProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelCodigo1))
+                    .addComponent(LabelHerramientas))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelEnProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CampoHerramientas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtmaterial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LabelCantidadProductos)
@@ -892,6 +911,7 @@ import com.mycompany.ExcepcionDatoValido;
         txtdescripcion.setText("");
         txtmaterial.setText("");
         CampoEjemploUso.setText("");
+        CampoHerramientas.setText("");
     }
 
     private void BotonClientesActionPerformed(java.awt.event.ActionEvent evt) {                                              
@@ -904,7 +924,11 @@ import com.mycompany.ExcepcionDatoValido;
 
     private void CampoEjemploUsoActionPerformed(java.awt.event.ActionEvent evt) {                                                
         // TODO add your handling code here:
-    }                                               
+    }     
+    
+    private void CampoHerramientasActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        // TODO add your handling code here:
+    }  
 
     private void CampoCantidadProductosActionPerformed(java.awt.event.ActionEvent evt) {                                                       
         // TODO add your handling code here:
@@ -932,6 +956,7 @@ import com.mycompany.ExcepcionDatoValido;
                 txtdescripcion.setText("");
                 txtmaterial.setText("");
                 CampoEjemploUso.setText("");
+                CampoHerramientas.setText("");
                 return;
             }
             int productosAgregar = Integer.parseInt(CampoCantidadProductos.getText());
@@ -970,6 +995,7 @@ import com.mycompany.ExcepcionDatoValido;
         txtdescripcion.setText("");
         txtmaterial.setText("");
         CampoEjemploUso.setText("");
+        CampoHerramientas.setText("");
     }
 
     public void BotonBuscarProductoPorCodigoActionPerformed(java.awt.event.ActionEvent evt){
@@ -985,6 +1011,7 @@ import com.mycompany.ExcepcionDatoValido;
                 JOptionPane.showMessageDialog(null, "INFORMACION DEL PRODUCTO:\nCÓDIGO: "+
                                 codigos.get(i)+"\nNOMBRE: "+nombres.get(i)+"\nDESCRIPCIÓN: "+descripciones.get(i)+
                                 "\nMATERIAL DE ELABORACION: "+materiales.get(i)+"\nEJEMPLO DE USO: "+EjemplosUso.get(i)+
+                                "\nH. NECESARIAS: "+herramientas.get(i)+
                                 "\nNUMERO DE VENTAS: "+ventasNum.get(i)+"\nCANTIDAD DISPONIBLE: "+cantidades.get(i)+"\n");
                 break; // Salir del bucle después de encontrar el producto
             }
@@ -1016,6 +1043,7 @@ import com.mycompany.ExcepcionDatoValido;
                 txtdescripcion.setText("");
                 txtmaterial.setText("");
                 CampoEjemploUso.setText("");
+                CampoHerramientas.setText("");
                 return;
             }
             int productosComprar = Integer.parseInt(CampoCantidadProductos.getText());
@@ -1041,6 +1069,7 @@ import com.mycompany.ExcepcionDatoValido;
                         descripciones.remove(i);
                         materiales.remove(i);
                         EjemplosUso.remove(i);
+                        herramientas.remove(i);
                         ventasNum.remove(i);
                         cantidades.remove(i);
                     }
@@ -1067,6 +1096,7 @@ import com.mycompany.ExcepcionDatoValido;
         txtdescripcion.setText("");
         txtmaterial.setText("");
         CampoEjemploUso.setText("");
+        CampoHerramientas.setText("");
     }
 
 
@@ -1119,6 +1149,7 @@ import com.mycompany.ExcepcionDatoValido;
                 codigos.remove(fila);
                 materiales.remove(fila);
                 EjemplosUso.remove(fila);
+                herramientas.remove(fila);
                 ventasNum.remove(fila);
 
                 // Vaciar los campos de texto en caso de que el usuario los rellene
@@ -1129,6 +1160,7 @@ import com.mycompany.ExcepcionDatoValido;
                 txtdescripcion.setText("");
                 txtmaterial.setText("");
                 CampoEjemploUso.setText("");
+                CampoHerramientas.setText("");
 
             }
             else{
@@ -1141,6 +1173,7 @@ import com.mycompany.ExcepcionDatoValido;
                 txtdescripcion.setText("");
                 txtmaterial.setText("");
                 CampoEjemploUso.setText("");
+                CampoHerramientas.setText("");
             }
         }                                             
 
@@ -1154,7 +1187,7 @@ import com.mycompany.ExcepcionDatoValido;
 
 
     public void BotonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {                                               
-        if ((txtcodigo.getText()).equals("") || nombreProducto.getText().equals("") || CampoCantidadProductos.getText().equals("") || txtprecio.getText().equals("") || txtdescripcion.getText().equals("") || txtmaterial.getText().equals("") || CampoEjemploUso.getText().equals("")){
+        if ((txtcodigo.getText()).equals("") || nombreProducto.getText().equals("") || CampoCantidadProductos.getText().equals("") || txtprecio.getText().equals("") || txtdescripcion.getText().equals("") || txtmaterial.getText().equals("") || CampoEjemploUso.getText().equals("")|| CampoHerramientas.getText().equals("")){
             JOptionPane.showMessageDialog(null, "DEBES MARCAR TODOS LOS CAMPOS!!!");
         }
         else{
@@ -1195,6 +1228,7 @@ import com.mycompany.ExcepcionDatoValido;
                 codigos.add(txtcodigo.getText());
                 materiales.add(txtmaterial.getText());
                 EjemplosUso.add(CampoEjemploUso.getText());
+                herramientas.add(CampoHerramientas.getText());
                 ventasNum.add((int)0);
                 modelo.addRow(info);
             }
@@ -1208,6 +1242,7 @@ import com.mycompany.ExcepcionDatoValido;
         txtdescripcion.setText("");
         txtmaterial.setText("");
         CampoEjemploUso.setText("");
+        CampoHerramientas.setText("");
     }
  
         // TODO add your handling code here:
@@ -1223,12 +1258,83 @@ import com.mycompany.ExcepcionDatoValido;
         // TODO add your handling code here:
         int fila = tablaProductos.getSelectedRow();
         if(fila>=0){
-            JOptionPane.showMessageDialog(null, "PRECIO: " + precios.get(fila) + "\nCANTIDADES: " + cantidades.get(fila) + "\nNOMBRE: " + nombres.get(fila) + "\nDESCRIPCION: " + descripciones.get(fila) + "\nCODIGO: " + codigos.get(fila) + "\nMATERIAL DE ELABORACION: " + materiales.get(fila) + "\nEJEMPLO DE USO: "+ EjemplosUso.get(fila));
+            JOptionPane.showMessageDialog(null, "PRECIO: " + precios.get(fila) + "\nCANTIDADES: " + cantidades.get(fila) + "\nNOMBRE: " + nombres.get(fila) + "\nDESCRIPCION: " + descripciones.get(fila) + "\nCODIGO: " + codigos.get(fila) + "\nMATERIAL DE ELABORACION: " + materiales.get(fila) + "\nEJEMPLO DE USO: "+ EjemplosUso.get(fila)+ "\nH. NECESARIAS "+ herramientas.get(fila));
 
        }else{
            JOptionPane.showMessageDialog(null, "Seleccionar fila para ver detalles");
        }
-    }                                                  
+    }        
+    
+    public int calcularPrecioTotal() {
+
+        int precioTotal = 0;
+        for (int i = 0; i < codigos.size(); i++) {
+            precioTotal += precios.get(i) * cantidades.get(i);
+        }
+        return precioTotal;
+
+    }
+
+    public ArrayList<String> obtenerProductosMasStock() {
+
+        ArrayList<String> masStock = new ArrayList<>();
+        ArrayList<Integer> cantidadesOrdenadas = new ArrayList<>(cantidades);
+        Collections.sort(cantidadesOrdenadas);
+        int indexMax1 = cantidades.indexOf(cantidadesOrdenadas.get(cantidadesOrdenadas.size() - 1));
+        int indexMax2 = cantidades.indexOf(cantidadesOrdenadas.get(cantidadesOrdenadas.size() - 2));
+        masStock.add(nombres.get(indexMax1));
+        masStock.add(nombres.get(indexMax2));
+        return masStock;
+
+    }
+
+    public ArrayList<String> obtenerProductosMenosStock() {
+
+        ArrayList<String> menosStock = new ArrayList<>();
+        ArrayList<Integer> cantidadesOrdenadas = new ArrayList<>(cantidades);
+        Collections.sort(cantidadesOrdenadas);
+        int indexMin1 = cantidades.indexOf(cantidadesOrdenadas.get(0));
+        int indexMin2 = cantidades.indexOf(cantidadesOrdenadas.get(1));
+        menosStock.add(nombres.get(indexMin1));
+        menosStock.add(nombres.get(indexMin2));
+        return menosStock;
+
+    }
+
+    public ArrayList<String> obtenerHerramientasMasUsadas() {
+
+        Map<String, Integer> herramientasCount = new HashMap<>();
+        for (String herramienta : herramientas) {
+            herramientasCount.put(herramienta, herramientasCount.getOrDefault(herramienta, 0) + 1);
+        }
+        ArrayList<String> herramientasMasUsadas = new ArrayList<>();
+        int maxCount = 0;
+        for (Map.Entry<String, Integer> entry : herramientasCount.entrySet()) {
+            if (entry.getValue() > maxCount) {
+            maxCount = entry.getValue();
+            herramientasMasUsadas.clear();
+            herramientasMasUsadas.add(entry.getKey());
+            } else if (entry.getValue() == maxCount) {
+                herramientasMasUsadas.add(entry.getKey());
+            }
+        }
+        return herramientasMasUsadas;
+    }
+
+    private void mostrarEstadisticas() {
+
+        int precioTotal = calcularPrecioTotal();
+        ArrayList<String> masStock = obtenerProductosMasStock();
+        ArrayList<String> menosStock = obtenerProductosMenosStock();
+        List<String> herramientasMasUsadas = obtenerHerramientasMasUsadas();
+        String estadisticas = "Estadisticas:\n\n";
+        estadisticas += "Precio total de productos en inventario: $" + precioTotal + "\n\n";
+        estadisticas += "Productos con mas stock: " + masStock.get(0) + ", " + masStock.get(1) + "\n";
+        estadisticas += "Productos con menos stock: " + menosStock.get(0) + ", " + menosStock.get(1) + "\n\n";
+        estadisticas += "Herramientas mas usadas: " + String.join(", ", herramientasMasUsadas);
+        
+        JOptionPane.showMessageDialog(this, estadisticas, "Estadisticas", JOptionPane.INFORMATION_MESSAGE);
+    }                       
 
     /**
      * @param args the command line arguments
@@ -1281,7 +1387,7 @@ import com.mycompany.ExcepcionDatoValido;
     private javax.swing.JTextField CampoEjemploUso;
     private javax.swing.JLabel LabelCantidadProductos;
     private javax.swing.JLabel LabelCodigo;
-    private javax.swing.JLabel LabelCodigo1;
+    private javax.swing.JLabel LabelHerramientas;
     private javax.swing.JLabel LabelDescripcion;
     private javax.swing.JLabel LabelEjemploUso;
     private javax.swing.JLabel LabelMaterial;
@@ -1339,7 +1445,7 @@ import com.mycompany.ExcepcionDatoValido;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField CampoHerramientas;
     private javax.swing.JTextField jTextField6;
     //private javax.swing.JTextField CampoBuscarProductoPorCodigo;
     private javax.swing.JToolBar jToolBar1;
