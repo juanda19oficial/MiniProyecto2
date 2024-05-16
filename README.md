@@ -16,7 +16,7 @@
   - Agregar Productos (solo se pueden agregar productos que ya se encuentran adicionados).
   - Vender Productos (Se venden los productos que se encuentran disponibles).
   - Elininar (eimina los productos que se encuentran adicionados seleccionando la fila correspondiente en la tabla de la derecha).
-  - Ver detalle del producto (Muestra informacion rezpecto al producto seleccionando la fila correspondiente a éste de la tabla de la derecha).
+  - Ver detalle del producto (Muestra informacion respecto al producto seleccionando la fila correspondiente a éste de la tabla de la derecha).
   - Vaciar Campos de texto (Permite al usuario vaciar los campos de texto en que que haya digitado algo. Esta funcionalidad hace más amigable la interfaz).
   - Buscar Producto Por Codigo (En la parte superior del panel se encuentra un campo de texto que permite buscar un producto por su codigo al dar clic en el botón de al lado. Se muestra informacion correspondiente al producto ingresado).
   - Mostrar Estadísticas (Esta funcionalidad permite mostrar el precio total de los productos registrados en el inventario, así como los productos con más y menos stok, y las herramientas más usadas).
