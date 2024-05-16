@@ -1053,6 +1053,16 @@ import com.mycompany.ExcepcionDatoValido;
                     int nuevaCantidad = cantidades.get(i) - productosComprar;
                     if (nuevaCantidad < 0) {
                         JOptionPane.showMessageDialog(null, "No hay suficientes productos en stock");
+                        // Vaciar los campos de texto
+                        CampoBuscarProductoPorCodigo.setText("");
+                        txtcodigo.setText("");
+                        CampoCantidadProductos.setText("");
+                        txtprecio.setText("");
+                        nombreProducto.setText("");
+                        txtdescripcion.setText("");
+                        txtmaterial.setText("");
+                        CampoEjemploUso.setText("");
+                        CampoHerramientas.setText("");
                         return; // Salir del método si no hay suficientes productos en stock
                     }
                     cantidades.set(i, nuevaCantidad); // Actualizar la cantidad disponible
